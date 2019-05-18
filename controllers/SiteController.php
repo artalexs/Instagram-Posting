@@ -8,8 +8,9 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 use app\models\SignupForm;
+use app\models\Upload;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -95,7 +96,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $model->instaLogin($model);    
-            return $this->redirect(['post']);
+            return $this->redirect(['image']);
         }
 
         $model->password = '';
@@ -114,6 +115,21 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionImage()
+    {                
+        $model = new Upload();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if ($model->saveImagedb() && $model->upload()) {
+                $model->instaUpload($model);
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('image', ['model' => $model]);
     }
 
     public function actionPost()

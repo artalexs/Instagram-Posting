@@ -4,7 +4,6 @@ namespace app\models;
 
 use Yii;
 
-
 /**
  * This is the model class for table "post".
  *
@@ -12,6 +11,7 @@ use Yii;
  * @property string $image
  * @property string $description
  * @property string $date
+ * @property string $username
  */
 class Post extends \yii\db\ActiveRecord
 {
@@ -30,8 +30,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             [['description'], 'string'],
-            [['date'], 'safe'],
-            [['image'], 'string', 'max' => 255],
+            [['image'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -45,6 +44,14 @@ class Post extends \yii\db\ActiveRecord
             'image' => 'Image',
             'description' => 'Description',
             'date' => 'Date',
+            'username' => 'Username',
         ];
+    }
+
+    public function saveImage()
+    {
+        $post = new Post();
+        $post->attributes = $this->attributes;
+        return $post->save(false);
     }
 }

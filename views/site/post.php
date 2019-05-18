@@ -1,17 +1,7 @@
 <?php
-use app\models\LoginForm;
 
 $this->title = 'My Yii Application';
-// \InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;
-// $username = $model->username;
-// $password = $model->password;
-// $debug = false;
-// $truncatedDebug = false;
-
-// $ig = new \InstagramAPI\Instagram($debug, $truncatedDebug);
-// $ig->login($username, $password);
-// $userId = $ig->people->getUserIdForName($username);
-// ?>
+?>
 <div class="site-index">
 
     <div class="jumbotron">
