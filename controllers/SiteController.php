@@ -132,11 +132,6 @@ class SiteController extends Controller
         return $this->render('image', ['model' => $model]);
     }
 
-    public function actionPost()
-    {                
-        return $this->render('post');
-    }
-
     /**
      * Displays contact page.
      *

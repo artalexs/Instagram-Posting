@@ -7,6 +7,8 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Upload */
 /* @var $form yii\widgets\ActiveForm */
+
+$this->title = 'Add post';
 ?>
 
 <div class="article-form">
