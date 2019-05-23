@@ -84,7 +84,10 @@ class LoginForm extends Model
         $debug = false;
         $truncatedDebug = false;
         
-        $ig = new \InstagramAPI\Instagram($debug, $truncatedDebug);
+        $ig = new \InstagramAPI\Instagram($debug, $truncatedDebug, [
+            'storage' => 'mysql',
+            'dbname'=> 'local',
+        ]);
 
         try {
             $ig->login($username, $password);

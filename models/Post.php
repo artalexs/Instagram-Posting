@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\base\Model;
 
 /**
  * This is the model class for table "post".
@@ -48,10 +49,8 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 
-    public function saveImage()
+    public function getImage()
     {
-        $post = new Post();
-        $post->attributes = $this->attributes;
-        return $post->save(false);
+        return $this->image = Yii::getAlias('@web') . 'uploads/' . Upload::upload();
     }
 }
