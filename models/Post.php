@@ -16,6 +16,7 @@ use yii\base\Model;
  */
 class Post extends \yii\db\ActiveRecord
 {
+    // public $image;
     /**
      * {@inheritdoc}
      */
@@ -49,8 +50,8 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getImage()
+    public function getImageurl() 
     {
-        return $this->image = Yii::getAlias('@web') . 'uploads/' . Upload::upload();
-    }
+        return \Yii::$app->request->BaseUrl.'/uploads/'.$this->image; 
+    } 
 }

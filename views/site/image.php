@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\jui\DatePicker;
+use app\models\Upload;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Upload */
@@ -24,7 +25,7 @@ $this->title = 'Create post';
     <?= $form->field($model, 'description')->textInput() ?>
 
     <!-- <?= $form->field($model, 'date')->widget(\yii\jui\DatePicker::className(), [
-        'dateFormat' => 'yyyy-MM-dd чч:мм:сс'
+        'dateFormat' => 'dd-MM-yyyy'
     ]) ?> -->
 
     <div class="form-group">
