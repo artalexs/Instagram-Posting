@@ -18,8 +18,8 @@ $this->title = 'Create post';
 
     <?php
     // $username = app\models\User::find()->select(['username'])->asArray()->one(); ?>
-
-    <?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <?= $form->field($model, 'description')->textInput() ?>
 

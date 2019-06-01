@@ -67,9 +67,9 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Signup action.
      *
-     * @return Response|string
+     * @return Response
      */
     public function actionSignup()
     {        
@@ -87,6 +87,11 @@ class SiteController extends Controller
         return $this->render('signup', ['model'=>$model]);
     }
 
+    /**
+     * Login action.
+     *
+     * @return Response
+     */
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -117,6 +122,11 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+    /**
+     * Image action.
+     *
+     * @return Response
+     */
     public function actionImage()
     {                
         $model = new Upload();
@@ -130,33 +140,5 @@ class SiteController extends Controller
         }
 
         return $this->render('image', ['model' => $model]);
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }
