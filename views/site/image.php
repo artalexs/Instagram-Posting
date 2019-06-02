@@ -17,16 +17,9 @@ $this->title = 'Create post';
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php
-    // $username = app\models\User::find()->select(['username'])->asArray()->one(); ?>
-    
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'image')->label('Image (The file name must not contain Cyrillic characters)')->fileInput() ?>
 
     <?= $form->field($model, 'description')->textInput() ?>
-
-    <!-- <?= $form->field($model, 'date')->widget(\yii\jui\DatePicker::className(), [
-        'dateFormat' => 'dd-MM-yyyy'
-    ]) ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>

@@ -123,7 +123,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Image action.
+     * Logout action.
      *
      * @return Response
      */

@@ -50,8 +50,4 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getImageurl() 
-    {
-        return \Yii::$app->request->BaseUrl.'/uploads/'.$this->image; 
-    } 
 }

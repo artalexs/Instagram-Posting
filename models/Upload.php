@@ -11,7 +11,7 @@ use yii\web\UploadedFile;
     public $image;
     public $description;
     public $username;
-    public $date;
+    // public $date;
 
     public function rules()
     {
