@@ -123,22 +123,27 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
+     * Uploading image
      *
      * @return Response
      */
     public function actionImage()
-    {                
-        $model = new Upload();
+    {  
+        if (!Yii::$app->user->isGuest) {
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if ($model->saveImagedb() && $model->upload()) {
-                $model->instaUpload($model);
-                return $this->goHome();
+            $model = new Upload();
+
+            if ($model->load(Yii::$app->request->post())) {
+                $model->image = UploadedFile::getInstance($model, 'image');
+                if ($model->saveImagedb() && $model->upload()) {
+                    $model->instaUpload($model);
+                    return $this->goHome();
+                }
             }
-        }
+              return $this->render('image', ['model' => $model]);
 
-        return $this->render('image', ['model' => $model]);
+        } else {
+            return $this->render('index');
+        }
     }
 }

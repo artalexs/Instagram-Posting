@@ -10,14 +10,15 @@ use app\models\Upload;
 /* @var $model app\models\Upload */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = 'Create post';
+$this->title = 'Create';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="article-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'image')->label('Image (The file name must not contain Cyrillic characters)')->fileInput() ?>
+    <?= $form->field($model, 'image')->label('Image  (The file name must not contain Cyrillic characters)')->fileInput() ?>
 
     <?= $form->field($model, 'description')->textInput() ?>
 
