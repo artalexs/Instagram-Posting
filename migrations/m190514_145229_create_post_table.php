@@ -16,7 +16,7 @@ class m190514_145229_create_post_table extends Migration
             'id' => $this->primaryKey(),
             'image'=> $this->string(),
             'description'=>$this->text(),
-            'date'=>$this->date()->defaultValue('CURRENT_TIMESTAMP'),
+            'date'=>$this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
         ]);
     }
 
